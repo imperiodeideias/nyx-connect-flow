@@ -14,16 +14,219 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_profiles: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      landing_page_visits: {
+        Row: {
+          created_at: string
+          device_type: string | null
+          id: string
+          landing_page: string
+          referrer: string | null
+          session_id: string
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+        }
+        Insert: {
+          created_at?: string
+          device_type?: string | null
+          id?: string
+          landing_page?: string
+          referrer?: string | null
+          session_id: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Update: {
+          created_at?: string
+          device_type?: string | null
+          id?: string
+          landing_page?: string
+          referrer?: string | null
+          session_id?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+        }
+        Relationships: []
+      }
+      lead_notes: {
+        Row: {
+          author_id: string | null
+          created_at: string
+          id: string
+          lead_id: string
+          nota: string
+        }
+        Insert: {
+          author_id?: string | null
+          created_at?: string
+          id?: string
+          lead_id: string
+          nota: string
+        }
+        Update: {
+          author_id?: string | null
+          created_at?: string
+          id?: string
+          lead_id?: string
+          nota?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_notes_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      leads: {
+        Row: {
+          cargo: string | null
+          consentimento: boolean
+          created_at: string
+          device_type: string | null
+          email: string
+          empresa: string
+          fbclid: string | null
+          gclid: string | null
+          id: string
+          interesse: string | null
+          nome: string
+          origem: string
+          referrer: string | null
+          session_id: string | null
+          status: Database["public"]["Enums"]["lead_status"]
+          updated_at: string
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+          whatsapp: string
+        }
+        Insert: {
+          cargo?: string | null
+          consentimento?: boolean
+          created_at?: string
+          device_type?: string | null
+          email: string
+          empresa: string
+          fbclid?: string | null
+          gclid?: string | null
+          id?: string
+          interesse?: string | null
+          nome: string
+          origem?: string
+          referrer?: string | null
+          session_id?: string | null
+          status?: Database["public"]["Enums"]["lead_status"]
+          updated_at?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          whatsapp: string
+        }
+        Update: {
+          cargo?: string | null
+          consentimento?: boolean
+          created_at?: string
+          device_type?: string | null
+          email?: string
+          empresa?: string
+          fbclid?: string | null
+          gclid?: string | null
+          id?: string
+          interesse?: string | null
+          nome?: string
+          origem?: string
+          referrer?: string | null
+          session_id?: string | null
+          status?: Database["public"]["Enums"]["lead_status"]
+          updated_at?: string
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          whatsapp?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin"
+      lead_status:
+        | "novo"
+        | "contato_iniciado"
+        | "reuniao_agendada"
+        | "qualificado"
+        | "oportunidade"
+        | "sem_interesse"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +353,16 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin"],
+      lead_status: [
+        "novo",
+        "contato_iniciado",
+        "reuniao_agendada",
+        "qualificado",
+        "oportunidade",
+        "sem_interesse",
+      ],
+    },
   },
 } as const
