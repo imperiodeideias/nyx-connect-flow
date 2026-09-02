@@ -3,6 +3,7 @@ import {
   BedDouble,
   Boxes,
   ClipboardCheck,
+  Clock,
   Gauge,
   MapPin,
   Radar,
