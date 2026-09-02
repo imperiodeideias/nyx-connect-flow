@@ -634,3 +634,238 @@ export function CtaFinal() {
     </section>
   );
 }
+
+const depoimentos = [
+  {
+    texto:
+      "Tive a honra e o enorme prazer de fazer parte de um grande projeto ao lado de profissionais maravilhosos que desenvolveram comigo um app revolucionário para a área de hotelaria hospitalar! Uma equipe muito empenhada que compreendeu a grandiosidade que é o setor de hotelaria!",
+    nome: "Ana Paula F. Dellanegra",
+    cargo: "Gerente de Hotelaria Corporativa",
+  },
+  {
+    texto:
+      "Prontidão, agilidade e interesse em prestar um serviço de qualidade. Serviço de alto nível... fornecendo dados de um modo que tem prestado auxílio muito importante na visualização das atividades medidas para futuras tomadas de decisões.",
+    nome: "Fernando Almeida",
+    cargo: "Adm. de Hotelaria Hospitalar — Prevent Senior",
+  },
+  {
+    texto:
+      "A solução de vocês não só é integrada, como é completa! Tem todo o roteiro de trabalho individualmente nos processos de higienização, tem a evidência de que o trabalho foi feito, tem uma área onde podem ser colocados os treinamentos, vídeos...",
+    nome: "Ana Augusta Blumer Salotti",
+    cargo: "Sócia Fundadora — Hotelaria Hospitalar Comunicação e Treinamentos",
+  },
+  {
+    texto:
+      "App muito fácil de ser utilizado e de extrema eficácia. Tem nos ajudado muito, sendo um facilitador nas execuções das demandas.",
+    nome: "Alexsandra M. G. Ribeiro",
+    cargo: "Líder de Hotelaria Hospitalar — Prevent Senior",
+  },
+  {
+    texto:
+      "Desde o início dos nossos contratos fomos muito bem atendidos nas demandas comerciais e operacionais, sempre com vistas a uma gestão mais eficiente e profissional junto aos nossos clientes de alto nível. Estamos muito satisfeitos com essa parceria entre a Dinâmica Facility e a newcheck by nyx.",
+    nome: "Carlos Fernando Vilanova",
+    cargo: "Gerente Comercial — Dinâmica Facility",
+  },
+];
+
+export function GestaoAtivos() {
+  return (
+    <section id="gestao-ativos" className="bg-mist py-20 lg:py-28">
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <Reveal className="max-w-3xl">
+          <span className="eyebrow text-graphite">Gestão de Ativos</span>
+          <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold text-foreground">
+            Cada registro conta. Cada jornada importa.
+          </h2>
+          <p className="mt-5 text-lg text-graphite">
+            A gestão de ativos hospitalares com o tracker é uma solução baseada em tecnologia RTLS (Real-Time Location
+            System), que usa gateways IoT e beacons BLE para rastrear em tempo real ativos críticos dentro do hospital —
+            cadeiras de rodas, macas, bombas de infusão, carrinhos de parada, entre outros.
+          </p>
+          <p className="mt-4 text-graphite">
+            O objetivo é reduzir perdas, melhorar a utilização dos equipamentos e otimizar o tempo da equipe
+            assistencial, evitando buscas manuais e gargalos operacionais.
+          </p>
+        </Reveal>
+
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+          <Reveal>
+            <figure className="overflow-hidden rounded-lg border border-border bg-background">
+              <video
+                src={img.cercasVideo}
+                poster={img.cercasPoster}
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Animação de cercas eletrônicas emitindo alerta de evasão de ativos"
+                className="w-full"
+              />
+              <figcaption className="border-t border-border px-4 py-3 text-sm text-graphite">
+                Cercas eletrônicas: alerta imediato quando um ativo cruza um ponto de saída mapeado.
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          <div className="grid gap-6">
+            {[
+              {
+                icon: ShieldCheck,
+                titulo: "Violação do beacon",
+                texto:
+                  "Quando um beacon é retirado do ativo, alertas são emitidos e o acompanhamento mostra o último local por onde o ativo passou.",
+              },
+              {
+                icon: RadioTower,
+                titulo: "Evasão de ativos",
+                texto:
+                  "O posicionamento dos gateways mapeia os principais locais de passagem, disparando alerta do tipo “Ativo 0123 saindo pela entrada XYZ”.",
+              },
+              {
+                icon: Boxes,
+                titulo: "Uso e disponibilidade",
+                texto:
+                  "Menos perdas, mais giro de equipamento e equipe assistencial livre de buscas manuais pelos andares.",
+              },
+            ].map((item, i) => (
+              <Reveal key={item.titulo} delay={i * 70} className="border-l-2 border-gold bg-background p-6">
+                <item.icon className="size-5 text-navy" aria-hidden />
+                <h3 className="mt-3 text-lg font-bold text-foreground">{item.titulo}</h3>
+                <p className="mt-2 text-sm text-graphite">{item.texto}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Intercorrencias() {
+  return (
+    <section id="intercorrencias" className="bg-background py-20 lg:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-2 lg:items-center lg:px-8">
+        <Reveal>
+          <span className="eyebrow text-graphite">Intercorrências Clínicas</span>
+          <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold text-foreground">
+            Chamados críticos com fluxo, tempo e responsável.
+          </h2>
+          <p className="mt-5 text-lg text-graphite">
+            Abra e acompanhe o fluxo de chamados de emergência, admissões, farmácia, fisioterapia e outros, reduzindo
+            atrasos, aumentando a segurança e melhorando a comunicação entre as equipes.
+          </p>
+          <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+            {[
+              "Códigos de emergência (Pânico, Azul, Amarelo, Conforto)",
+              "Admissão de pacientes",
+              "Recoleta de exames",
+              "Farmácia",
+              "Fisioterapia",
+              "Notificações automáticas às equipes",
+            ].map((item) => (
+              <li key={item} className="border-l-2 border-gold pl-4 text-sm font-semibold text-foreground">
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-graphite">
+            Painéis e relatórios completos por tipo de chamado, tempo de resposta e equipe envolvida.
+          </p>
+        </Reveal>
+
+        <Reveal delay={100}>
+          <figure className="overflow-hidden rounded-lg border border-border">
+            <img
+              src={img.intercorrenciasPaineis}
+              alt="Painéis de acompanhamento de intercorrências clínicas da nyx"
+              className="w-full"
+              width={1100}
+              height={1056}
+              loading="lazy"
+            />
+          </figure>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function Hospitalidade() {
+  const telas = [
+    { src: img.hospitalidadeApp, alt: "Tela inicial do app de hospitalidade com a marca da instituição" },
+    { src: img.hospitalidadeSolicitacoes, alt: "Tela de itens de solicitação do app de hospitalidade" },
+    { src: img.hospitalidadePesquisa, alt: "Tela de pesquisa de satisfação do app de hospitalidade" },
+    { src: img.hospitalidadeInformacoes, alt: "Tela de informações e dicas da instituição no app" },
+  ];
+  return (
+    <section id="hospitalidade" className="bg-navy py-20 text-navy-foreground lg:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:px-8">
+        <Reveal>
+          <span className="eyebrow text-gold">Hospitalidade</span>
+          <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold">
+            Solicitações, avaliações e muito +.
+          </h2>
+          <p className="mt-5 text-lg opacity-85">
+            Um aplicativo com a identidade da sua instituição, na mão do paciente e do acompanhante, para pedir o que
+            precisa e avaliar o atendimento no momento em que ele acontece.
+          </p>
+          <ul className="mt-7 grid gap-3">
+            {[
+              "Logo e cores da instituição",
+              "Itens de solicitação configuráveis",
+              "Pesquisas de satisfação",
+              "Informações sobre a instituição, dicas e mais",
+            ].map((item) => (
+              <li key={item} className="border-l-2 border-gold pl-4 text-sm font-semibold">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
+        <Reveal delay={100} className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {telas.map((tela) => (
+            <img
+              key={tela.src}
+              src={tela.src}
+              alt={tela.alt}
+              loading="lazy"
+              className="w-full rounded-md object-contain"
+            />
+          ))}
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function Depoimentos() {
+  return (
+    <section id="depoimentos" className="bg-mist py-20 lg:py-28">
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <Reveal className="max-w-2xl">
+          <span className="eyebrow text-graphite">Depoimentos</span>
+          <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold text-foreground">
+            Quem já se beneficia.
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {depoimentos.map((d, i) => (
+            <Reveal
+              key={d.nome}
+              delay={i * 60}
+              className="flex flex-col justify-between border-t-2 border-gold bg-background p-6"
+            >
+              <p className="text-sm leading-relaxed text-graphite">“{d.texto}”</p>
+              <div className="mt-5">
+                <p className="text-sm font-bold text-foreground">{d.nome}</p>
+                <p className="text-xs text-graphite">{d.cargo}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
