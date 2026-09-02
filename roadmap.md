@@ -4,3 +4,5 @@
 - [x] Alterar a marca textual de NYX para nyx.
 - [x] Substituir a imagem da seção Hospital Inteligente pela imagem anexa.
 - [x] Equilibrar visualmente os logos de clientes e corrigir os que aparecem menores.
+- [x] Incluir bloco sobre Salas Cirúrgicas ociosas na seção "O problema".
+- [x] Adicionar balão de WhatsApp flutuante para contato direto (+55 11 99308-3178).

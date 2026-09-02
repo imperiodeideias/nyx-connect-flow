@@ -3,6 +3,7 @@ import {
   BedDouble,
   Boxes,
   ClipboardCheck,
+  Clock,
   Gauge,
   MapPin,
   Radar,
@@ -93,6 +94,11 @@ const dores = [
     texto: "Alta dada, leito liberado só horas depois. O gargalo existe, mas ninguém consegue prová-lo com dados.",
   },
   {
+    icon: Clock,
+    titulo: "Salas cirúrgicas ociosas",
+    texto: "Cirurgias canceladas, sala liberada sem uso e equipamento ou equipe no lugar errado na hora errada.",
+  },
+  {
     icon: ClipboardCheck,
     titulo: "Processo sem evidência",
     texto: "Higienização, rondas e checklists registrados no papel — sem hora, sem local, sem auditoria confiável.",
@@ -110,7 +116,7 @@ export function Problema() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {dores.map((dor, index) => (
             <Reveal key={dor.titulo} delay={index * 100}>
               <article className="h-full border-t-2 border-gold bg-mist p-7">
