@@ -6,7 +6,6 @@ import trackerGatewayBeacon from "@/assets/tracker-gateway-beacon.webp.asset.jso
 import trackerGateway from "@/assets/tracker-gateway.webp.asset.json";
 import trackerPulseira from "@/assets/tracker-pulseira.webp.asset.json";
 import trackerSensorAmbiente from "@/assets/tracker-sensor-ambiente.webp.asset.json";
-import gestaoAtivos from "@/assets/gestao-ativos.webp.asset.json";
 import beaconTag from "@/assets/beacon-tag.webp.asset.json";
 import dashboard from "@/assets/dashboard.webp.asset.json";
 
@@ -37,7 +36,6 @@ export const img = {
   trackerGateway: trackerGateway.url,
   trackerPulseira: trackerPulseira.url,
   trackerSensorAmbiente: trackerSensorAmbiente.url,
-  gestaoAtivos: gestaoAtivos.url,
   beaconTag: beaconTag.url,
   dashboard: dashboard.url,
 };

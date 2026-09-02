@@ -56,7 +56,7 @@ export function Hero() {
               href="#contato"
               className="rounded-sm bg-gold px-7 py-4 text-base font-bold text-gold-foreground transition-transform hover:-translate-y-0.5"
             >
-              Quero um diagnóstico gratuito
+              Agendar demonstração
             </a>
             <a
               href="#tracker"
