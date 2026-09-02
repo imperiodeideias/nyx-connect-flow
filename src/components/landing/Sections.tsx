@@ -165,7 +165,7 @@ export function Tracker() {
           <Reveal delay={120} className="grid gap-4 sm:grid-cols-2">
             <figure className="col-span-full overflow-hidden rounded-lg bg-white/5 p-4">
               <img src={img.trackerGatewayBeacon} alt="Gateway e beacon do Tracker by nyx" className="mx-auto max-h-72 w-auto object-contain" loading="lazy" />
-              <figcaption className="mt-3 text-center text-xs text-navy-foreground/60">Gateway + beacon</figcaption>
+              <figcaption className="mt-3 text-center text-xs text-navy-foreground/60">Gateway + Beacon</figcaption>
             </figure>
             <figure className="overflow-hidden rounded-lg bg-white/5 p-4">
               <img src={img.trackerPulseira} alt="Pulseira com beacon para pacientes" className="mx-auto max-h-44 w-auto object-contain" loading="lazy" />
