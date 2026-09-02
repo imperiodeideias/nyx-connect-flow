@@ -374,7 +374,7 @@ export function HospitalInteligente() {
         <Reveal delay={100}>
           <span className="eyebrow text-graphite">Hospital inteligente</span>
           <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold text-foreground">
-            Da coleta invisível à decisão de diretoria.
+            Da coleta invisível aos dados que evidenciam as decisões
           </h2>
           <p className="mt-5 text-lg text-graphite">
             A camada IoT alimenta painéis executivos com indicadores que antes dependiam de planilha e memória.
