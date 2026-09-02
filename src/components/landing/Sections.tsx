@@ -443,9 +443,18 @@ export function Newcheck() {
             Higienização comprovada, não presumida.
           </h2>
           <p className="mt-5 text-lg text-graphite">
-            O newcheck registra cada etapa da limpeza e da manutenção com data, hora, local e responsável.
-            A gestão enxerga produtividade por colaborador e a instituição responde auditorias com evidência.
+            O newcheck é uma ferramenta de gestão que permite criar, executar e monitorar checklists digitais,
+            facilitando o controle de processos e garantindo a conformidade das operações. Com registros de atividades,
+            evidências fotográficas, geolocalização e notas, a plataforma assegura padronização e eficiência.
           </p>
+          <ol className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold text-foreground">
+            {["Planejamento", "Registros", "Verificação", "Acompanhamento"].map((etapa, i) => (
+              <li key={etapa} className="flex items-center gap-3">
+                {i > 0 && <span className="text-gold" aria-hidden>→</span>}
+                <span className="border-b-2 border-gold pb-1">{etapa}</span>
+              </li>
+            ))}
+          </ol>
           <div className="mt-7 border-l-2 border-gold pl-5">
             <strong className="block text-3xl font-extrabold text-foreground">50% menos tempo</strong>
             <p className="mt-1 text-sm text-graphite">
