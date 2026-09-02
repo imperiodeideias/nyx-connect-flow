@@ -58,6 +58,14 @@ export const img = {
   beaconTotem: beaconTotem.url,
   beaconAtivos: beaconAtivos.url,
   dashboard: dashboard.url,
+  newcheckPaineis: newcheckPaineis.url,
+  intercorrenciasPaineis: intercorrenciasPaineis.url,
+  hospitalidadeSolicitacoes: hospitalidadeSolicitacoes.url,
+  hospitalidadeApp: hospitalidadeApp.url,
+  hospitalidadePesquisa: hospitalidadePesquisa.url,
+  hospitalidadeInformacoes: hospitalidadeInformacoes.url,
+  cercasPoster: cercasPoster.url,
+  cercasVideo: cercasVideo.url,
 };
 
 export const clientes: { nome: string; src: string; escala?: string }[] = [
