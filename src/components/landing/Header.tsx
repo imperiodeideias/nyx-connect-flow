@@ -6,7 +6,7 @@ const links = [
   { href: "#tracker", label: "tracker" },
   { href: "#jornada", label: "Jornada Cirúrgica" },
   { href: "#aplicacoes", label: "Aplicações" },
-  { href: "#newcheck", label: "Newcheck" },
+  { href: "#newcheck", label: "newcheck" },
   { href: "#clientes", label: "Clientes" },
 ];
 
