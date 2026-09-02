@@ -274,7 +274,14 @@ export function Tracker() {
             {beacons.map((item) => (
               <article key={item.titulo} className="relative bg-navy p-6">
                 {item.badge ? <span className="absolute right-4 top-4 bg-gold px-2 py-1 text-[10px] font-bold uppercase text-gold-foreground">{item.badge}</span> : null}
-                <item.icon className="size-6 text-gold" aria-hidden />
+                <div className="flex h-28 items-center justify-center">
+                  <img
+                    src={item.img}
+                    alt={item.titulo === "Totem / interativos" ? "Totem interativo do Tracker by nyx" : `Beacon de ${item.titulo}`}
+                    className="max-h-28 w-auto max-w-[70%] object-contain"
+                    loading="lazy"
+                  />
+                </div>
                 <h4 className="mt-4 text-lg font-extrabold">
                   {item.titulo === "Totem / interativos" ? item.titulo : `Beacon de ${item.titulo}`}
                 </h4>
