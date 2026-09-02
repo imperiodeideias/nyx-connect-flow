@@ -43,6 +43,12 @@ export const img = {
   trackerPulseira: trackerPulseira.url,
   trackerSensorAmbiente: trackerSensorAmbiente.url,
   beaconTag: beaconTag.url,
+  beaconDispenser: beaconDispenser.url,
+  beaconPulseira: beaconPulseira.url,
+  beaconNeonato: beaconNeonato.url,
+  beaconPorta: beaconPorta.url,
+  beaconTotem: beaconTotem.url,
+  beaconAtivos: beaconAtivos.url,
   dashboard: dashboard.url,
 };
 
