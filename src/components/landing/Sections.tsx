@@ -214,7 +214,7 @@ export function Tracker() {
               IoT para transformar Hospitais Inteligentes
             </h2>
             <p className="mt-5 text-lg text-navy-foreground/80">
-              Hardware e software próprios. O Tracker conecta beacons BLE a gateways por Wi‑Fi e LoRa para
+              Hardware e software próprios. O tracker conecta beacons BLE a gateways por Wi‑Fi e LoRa para
               transformar equipamentos, pessoas e ambientes em fontes contínuas de dados.
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-navy-foreground/80">
