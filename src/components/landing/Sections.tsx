@@ -373,7 +373,7 @@ export function ProvaSocial() {
                 src={cliente.src}
                 alt={cliente.nome}
                 loading="lazy"
-                className="h-14 w-full object-contain opacity-75 transition-opacity hover:opacity-100"
+                className={`h-14 w-full object-contain opacity-75 transition-[opacity,transform] hover:opacity-100 ${cliente.escala ?? ""}`}
               />
             </Reveal>
           ))}
