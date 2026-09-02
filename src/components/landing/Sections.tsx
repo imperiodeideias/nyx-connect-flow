@@ -139,7 +139,7 @@ export function Tracker() {
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           <Reveal>
-            <span className="eyebrow text-gold">Tracker by nyx</span>
+            <span className="eyebrow normal-case text-gold">Tracker by nyx</span>
             <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold">
               Uma plataforma IoT feita para o chão do hospital.
             </h2>
