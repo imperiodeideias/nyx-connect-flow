@@ -173,7 +173,7 @@ export function Tracker() {
             </figure>
             <figure className="overflow-hidden rounded-lg bg-white/5 p-4">
               <img src={img.trackerSensorAmbiente} alt="Sensor de ambiente do Tracker by nyx" className="mx-auto max-h-44 w-auto object-contain" loading="lazy" />
-              <figcaption className="mt-3 text-center text-xs text-navy-foreground/60">Sensor de ambiente</figcaption>
+              <figcaption className="mt-3 text-center text-xs text-navy-foreground/60">Gateway / Sensor de Ambientes</figcaption>
             </figure>
           </Reveal>
         </div>
