@@ -14,6 +14,14 @@ import beaconPorta from "@/assets/beacon-porta.webp.asset.json";
 import beaconTotem from "@/assets/beacon-totem.webp.asset.json";
 import beaconAtivos from "@/assets/beacon-ativos.webp.asset.json";
 import dashboard from "@/assets/dashboard.webp.asset.json";
+import newcheckPaineis from "@/assets/newcheck-paineis.webp.asset.json";
+import intercorrenciasPaineis from "@/assets/intercorrencias-paineis.webp.asset.json";
+import hospitalidadeSolicitacoes from "@/assets/hospitalidade-solicitacoes.webp.asset.json";
+import hospitalidadeApp from "@/assets/hospitalidade-app.webp.asset.json";
+import hospitalidadePesquisa from "@/assets/hospitalidade-pesquisa.webp.asset.json";
+import hospitalidadeInformacoes from "@/assets/hospitalidade-informacoes.webp.asset.json";
+import cercasPoster from "@/assets/cercas-poster.webp.asset.json";
+import cercasVideo from "@/assets/cercas-eletronicas.mp4.asset.json";
 
 import logoAbralimp from "@/assets/logo-abralimp.webp.asset.json";
 import logoAirjet from "@/assets/logo-airjet.webp.asset.json";
