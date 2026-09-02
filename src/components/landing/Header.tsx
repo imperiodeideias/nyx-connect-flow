@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { img } from "@/lib/assets";
 
 const links = [
-  { href: "#tracker", label: "Tracker" },
+  { href: "#tracker", label: "tracker" },
   { href: "#jornada", label: "Jornada Cirúrgica" },
   { href: "#aplicacoes", label: "Aplicações" },
   { href: "#newcheck", label: "Newcheck" },
