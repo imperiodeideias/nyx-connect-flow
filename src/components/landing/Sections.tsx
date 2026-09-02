@@ -201,12 +201,12 @@ const etapas = [
 ];
 
 const beacons = [
-  { icon: Droplets, titulo: "Dispenser", texto: "Reposição de insumos" },
-  { icon: Watch, titulo: "Pulseira", texto: "Equipes e pacientes" },
-  { icon: Baby, titulo: "Neonato", texto: "Recém-nascidos", badge: "Em desenvolvimento" },
-  { icon: DoorOpen, titulo: "Porta", texto: "Acessos e atividades" },
-  { icon: MonitorCog, titulo: "Totem / interativos", texto: "Serviços e marcação de tempos" },
-  { icon: PackageOpen, titulo: "Ativos", texto: "Equipamentos diversos" },
+  { img: img.beaconDispenser, titulo: "Dispenser", texto: "Reposição de insumos" },
+  { img: img.beaconPulseira, titulo: "Pulseira", texto: "Equipes e pacientes" },
+  { img: img.beaconNeonato, titulo: "Neonato", texto: "Recém-nascidos", badge: "Em desenvolvimento" },
+  { img: img.beaconPorta, titulo: "Porta", texto: "Acessos e atividades" },
+  { img: img.beaconTotem, titulo: "Totem / interativos", texto: "Serviços e marcação de tempos" },
+  { img: img.beaconAtivos, titulo: "Ativos", texto: "Equipamentos diversos" },
 ];
 
 export function Tracker() {
