@@ -141,7 +141,7 @@ export function Tracker() {
           <Reveal>
             <span className="eyebrow normal-case text-gold">Tracker by nyx</span>
             <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold">
-              Uma plataforma IoT feita para o chão do hospital.
+              IoT para transformar Hospitais Inteligentes
             </h2>
             <p className="mt-5 text-lg text-navy-foreground/80">
               Hardware próprio, instalação não invasiva e software de gestão. O Tracker transforma equipamentos,
