@@ -409,7 +409,7 @@ export function Newcheck() {
             Higienização comprovada, não presumida.
           </h2>
           <p className="mt-5 text-lg text-graphite">
-            O Newcheck registra cada etapa da limpeza e da manutenção com data, hora, local e responsável.
+            O newcheck registra cada etapa da limpeza e da manutenção com data, hora, local e responsável.
             A gestão enxerga produtividade por colaborador e a instituição responde auditorias com evidência.
           </p>
           <div className="mt-7 border-l-2 border-gold pl-5">
