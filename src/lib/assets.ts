@@ -7,6 +7,12 @@ import trackerGateway from "@/assets/tracker-gateway.webp.asset.json";
 import trackerPulseira from "@/assets/tracker-pulseira.webp.asset.json";
 import trackerSensorAmbiente from "@/assets/tracker-sensor-ambiente.webp.asset.json";
 import beaconTag from "@/assets/beacon-tag.webp.asset.json";
+import beaconDispenser from "@/assets/beacon-dispenser.webp.asset.json";
+import beaconPulseira from "@/assets/beacon-pulseira.webp.asset.json";
+import beaconNeonato from "@/assets/beacon-neonato.webp.asset.json";
+import beaconPorta from "@/assets/beacon-porta.webp.asset.json";
+import beaconTotem from "@/assets/beacon-totem.webp.asset.json";
+import beaconAtivos from "@/assets/beacon-ativos.webp.asset.json";
 import dashboard from "@/assets/dashboard.webp.asset.json";
 
 import logoAbralimp from "@/assets/logo-abralimp.webp.asset.json";
@@ -37,6 +43,12 @@ export const img = {
   trackerPulseira: trackerPulseira.url,
   trackerSensorAmbiente: trackerSensorAmbiente.url,
   beaconTag: beaconTag.url,
+  beaconDispenser: beaconDispenser.url,
+  beaconPulseira: beaconPulseira.url,
+  beaconNeonato: beaconNeonato.url,
+  beaconPorta: beaconPorta.url,
+  beaconTotem: beaconTotem.url,
+  beaconAtivos: beaconAtivos.url,
   dashboard: dashboard.url,
 };
 

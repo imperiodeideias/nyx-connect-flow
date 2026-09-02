@@ -1,17 +1,12 @@
 import {
   Activity,
-  Baby,
   BedDouble,
   Boxes,
   ClipboardCheck,
   Clock,
-  DoorOpen,
-  Droplets,
   ExternalLink,
   Gauge,
   MapPin,
-  MonitorCog,
-  PackageOpen,
   RadioTower,
   Route,
   ShieldCheck,
@@ -19,7 +14,6 @@ import {
   Thermometer,
   TrendingUp,
   Users,
-  Watch,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { LeadForm } from "./LeadForm";
@@ -201,12 +195,12 @@ const etapas = [
 ];
 
 const beacons = [
-  { icon: Droplets, titulo: "Dispenser", texto: "Reposição de insumos" },
-  { icon: Watch, titulo: "Pulseira", texto: "Equipes e pacientes" },
-  { icon: Baby, titulo: "Neonato", texto: "Recém-nascidos", badge: "Em desenvolvimento" },
-  { icon: DoorOpen, titulo: "Porta", texto: "Acessos e atividades" },
-  { icon: MonitorCog, titulo: "Totem / interativos", texto: "Serviços e marcação de tempos" },
-  { icon: PackageOpen, titulo: "Ativos", texto: "Equipamentos diversos" },
+  { img: img.beaconDispenser, titulo: "Dispenser", texto: "Reposição de insumos" },
+  { img: img.beaconPulseira, titulo: "Pulseira", texto: "Equipes e pacientes" },
+  { img: img.beaconNeonato, titulo: "Neonato", texto: "Recém-nascidos", badge: "Em desenvolvimento" },
+  { img: img.beaconPorta, titulo: "Porta", texto: "Acessos e atividades" },
+  { img: img.beaconTotem, titulo: "Totem / interativos", texto: "Serviços e marcação de tempos" },
+  { img: img.beaconAtivos, titulo: "Ativos", texto: "Equipamentos diversos" },
 ];
 
 export function Tracker() {
@@ -274,7 +268,14 @@ export function Tracker() {
             {beacons.map((item) => (
               <article key={item.titulo} className="relative bg-navy p-6">
                 {item.badge ? <span className="absolute right-4 top-4 bg-gold px-2 py-1 text-[10px] font-bold uppercase text-gold-foreground">{item.badge}</span> : null}
-                <item.icon className="size-6 text-gold" aria-hidden />
+                <div className="flex h-28 items-center justify-center">
+                  <img
+                    src={item.img}
+                    alt={item.titulo === "Totem / interativos" ? "Totem interativo do Tracker by nyx" : `Beacon de ${item.titulo}`}
+                    className="max-h-28 w-auto max-w-[70%] object-contain"
+                    loading="lazy"
+                  />
+                </div>
                 <h4 className="mt-4 text-lg font-extrabold">
                   {item.titulo === "Totem / interativos" ? item.titulo : `Beacon de ${item.titulo}`}
                 </h4>
