@@ -58,9 +58,13 @@ function LandingPage() {
         <JornadaCirurgica />
         <Tracker />
         <Aplicacoes />
+        <GestaoAtivos />
+        <Intercorrencias />
         <HospitalInteligente />
         <Newcheck />
+        <Hospitalidade />
         <Beneficios />
+        <Depoimentos />
         <ProvaSocial />
         <CtaFinal />
       </main>
