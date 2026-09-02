@@ -81,10 +81,10 @@ export function LeadForm() {
   return (
     <form onSubmit={onSubmit} className="rounded-lg border border-border bg-card p-6 shadow-lg sm:p-8">
       <h3 className="text-2xl font-extrabold text-foreground sm:text-3xl">
-        Agende um diagnóstico gratuito
+        Agende uma demonstração
       </h3>
       <p className="mt-2 text-sm text-muted-foreground">
-        Mostramos, com dados da sua operação, onde a sensorização gera ganho imediato.
+        Veja como jornadas, ativos e ambientes se transformam em decisões baseadas em evidências.
       </p>
 
       <div className="mt-6 grid gap-4">
@@ -161,7 +161,7 @@ export function LeadForm() {
           className="inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-6 py-4 text-base font-bold text-gold-foreground transition-transform hover:-translate-y-0.5 disabled:opacity-60"
         >
           {loading ? <Loader2 className="size-4 animate-spin" aria-hidden /> : null}
-          {loading ? "Enviando..." : "Quero meu diagnóstico"}
+          {loading ? "Enviando..." : "Quero uma demonstração"}
         </button>
       </div>
     </form>
