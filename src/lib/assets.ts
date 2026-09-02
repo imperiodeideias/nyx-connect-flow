@@ -2,6 +2,7 @@ import logoNyx from "@/assets/logo-nyx.webp.asset.json";
 import logoNyxBranco from "@/assets/logo-nyx-branco.webp.asset.json";
 import heroCoberturaIot from "@/assets/hero-cobertura-iot.webp.asset.json";
 import hospitalInteligente from "@/assets/hospital-inteligente.webp.asset.json";
+import hospitalInteligenteConectado from "@/assets/hospital-inteligente-conectado.png.asset.json";
 import trackerGatewayBeacon from "@/assets/tracker-gateway-beacon.webp.asset.json";
 import trackerGateway from "@/assets/tracker-gateway.webp.asset.json";
 import trackerPulseira from "@/assets/tracker-pulseira.webp.asset.json";
@@ -32,7 +33,7 @@ export const img = {
   logoNyx: logoNyx.url,
   logoNyxBranco: logoNyxBranco.url,
   heroCoberturaIot: heroCoberturaIot.url,
-  hospitalInteligente: hospitalInteligente.url,
+  hospitalInteligente: hospitalInteligenteConectado.url,
   trackerGatewayBeacon: trackerGatewayBeacon.url,
   trackerGateway: trackerGateway.url,
   trackerPulseira: trackerPulseira.url,

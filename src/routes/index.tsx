@@ -17,7 +17,7 @@ import {
 import { trackVisit } from "@/lib/leads.functions";
 import { getAttribution, isFirstViewOfSession } from "@/lib/tracking";
 
-const title = "NYX Tecnologia — IoT e soluções digitais para hospitais";
+const title = "nyx Tecnologia — IoT e soluções digitais para hospitais";
 const description =
   "Sensorização IoT para gestão de ativos, jornada do paciente e higienização hospitalar. Menos perda de equipamento, mais giro de leito e evidência de cada processo.";
 

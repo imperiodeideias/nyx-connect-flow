@@ -38,7 +38,7 @@ export function Hero() {
             <span className="block text-gold">não é gerenciado.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-navy-foreground/80">
-            A NYX sensoriza ativos, pacientes e ambientes hospitalares em tempo real. Menos perda de equipamento,
+            A nyx sensoriza ativos, pacientes e ambientes hospitalares em tempo real. Menos perda de equipamento,
             menos tempo ocioso de leito e evidência objetiva de cada processo assistencial.
           </p>
 
@@ -139,7 +139,7 @@ export function Tracker() {
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
           <Reveal>
-            <span className="eyebrow text-gold">Tracker by NYX</span>
+            <span className="eyebrow text-gold">Tracker by nyx</span>
             <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold">
               Uma plataforma IoT feita para o chão do hospital.
             </h2>
@@ -164,7 +164,7 @@ export function Tracker() {
 
           <Reveal delay={120} className="grid gap-4 sm:grid-cols-2">
             <figure className="col-span-full overflow-hidden rounded-lg bg-white/5 p-4">
-              <img src={img.trackerGatewayBeacon} alt="Gateway e beacon do Tracker by NYX" className="mx-auto max-h-72 w-auto object-contain" loading="lazy" />
+              <img src={img.trackerGatewayBeacon} alt="Gateway e beacon do Tracker by nyx" className="mx-auto max-h-72 w-auto object-contain" loading="lazy" />
               <figcaption className="mt-3 text-center text-xs text-navy-foreground/60">Gateway + beacon</figcaption>
             </figure>
             <figure className="overflow-hidden rounded-lg bg-white/5 p-4">
@@ -172,7 +172,7 @@ export function Tracker() {
               <figcaption className="mt-3 text-center text-xs text-navy-foreground/60">Pulseira do paciente</figcaption>
             </figure>
             <figure className="overflow-hidden rounded-lg bg-white/5 p-4">
-              <img src={img.trackerSensorAmbiente} alt="Sensor de ambiente do Tracker by NYX" className="mx-auto max-h-44 w-auto object-contain" loading="lazy" />
+              <img src={img.trackerSensorAmbiente} alt="Sensor de ambiente do Tracker by nyx" className="mx-auto max-h-44 w-auto object-contain" loading="lazy" />
               <figcaption className="mt-3 text-center text-xs text-navy-foreground/60">Sensor de ambiente</figcaption>
             </figure>
           </Reveal>
@@ -314,7 +314,7 @@ export function Newcheck() {
 
         <Reveal delay={100}>
           <figure className="overflow-hidden rounded-lg border border-border">
-            <img src={img.dashboard} alt="Painel de indicadores da plataforma NYX" className="w-full object-cover" loading="lazy" />
+            <img src={img.dashboard} alt="Painel de indicadores da plataforma nyx" className="w-full object-cover" loading="lazy" />
           </figure>
         </Reveal>
       </div>
@@ -362,18 +362,18 @@ export function ProvaSocial() {
         <Reveal>
           <span className="eyebrow text-graphite">Confiança</span>
           <h2 className="mt-4 max-w-2xl text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold text-foreground">
-            Instituições de saúde e facilities que já contam com a NYX.
+            Instituições de saúde e facilities que já contam com a nyx.
           </h2>
         </Reveal>
 
-        <ul className="mt-12 grid grid-cols-2 items-center gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+        <ul className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {clientes.map((cliente, index) => (
-            <Reveal key={cliente.nome} as="li" delay={index * 30}>
+            <Reveal key={cliente.nome} as="li" delay={index * 30} className="flex h-24 items-center justify-center p-3">
               <img
                 src={cliente.src}
                 alt={cliente.nome}
                 loading="lazy"
-                className="mx-auto max-h-14 w-auto max-w-[150px] object-contain opacity-70 transition-opacity hover:opacity-100"
+                className="h-14 w-full object-contain opacity-75 transition-opacity hover:opacity-100"
               />
             </Reveal>
           ))}
@@ -397,7 +397,7 @@ export function CtaFinal() {
             aplicação do Tracker traz retorno mais rápido.
           </p>
           <figure className="mt-10 overflow-hidden rounded-lg">
-            <img src={img.gestaoAtivos} alt="Equipamentos hospitalares monitorados pela NYX" className="w-full object-cover" loading="lazy" />
+            <img src={img.gestaoAtivos} alt="Equipamentos hospitalares monitorados pela nyx" className="w-full object-cover" loading="lazy" />
           </figure>
         </Reveal>
 

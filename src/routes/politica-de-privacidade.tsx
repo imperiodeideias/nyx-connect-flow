@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-const title = "Política de Privacidade — NYX Tecnologia";
+const title = "Política de Privacidade — nyx Tecnologia";
 const description =
-  "Como a NYX Tecnologia coleta, usa e protege os dados pessoais informados na landing page, conforme a LGPD.";
+  "Como a nyx Tecnologia coleta, usa e protege os dados pessoais informados na landing page, conforme a LGPD.";
 
 export const Route = createFileRoute("/politica-de-privacidade")({
   head: () => ({
@@ -27,7 +27,7 @@ function Politica() {
       </Link>
       <h1 className="mt-6 text-4xl font-extrabold text-foreground">Política de Privacidade</h1>
       <p className="mt-4 text-graphite">
-        A NYX Tecnologia respeita a sua privacidade e trata dados pessoais conforme a Lei Geral de Proteção de
+        A nyx Tecnologia respeita a sua privacidade e trata dados pessoais conforme a Lei Geral de Proteção de
         Dados (Lei nº 13.709/2018).
       </p>
 
@@ -49,7 +49,7 @@ function Politica() {
         <div>
           <h2 className="text-xl font-extrabold">Armazenamento e segurança</h2>
           <p className="mt-2 text-graphite">
-            As informações ficam em ambiente controlado, com acesso restrito à equipe autorizada da NYX e
+            As informações ficam em ambiente controlado, com acesso restrito à equipe autorizada da nyx e
             protegidas por regras de acesso e autenticação.
           </p>
         </div>

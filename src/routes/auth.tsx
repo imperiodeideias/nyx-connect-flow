@@ -8,10 +8,10 @@ import { img } from "@/lib/assets";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Acesso restrito — NYX Tecnologia" },
-      { name: "description", content: "Área administrativa da landing page da NYX Tecnologia." },
-      { property: "og:title", content: "Acesso restrito — NYX Tecnologia" },
-      { property: "og:description", content: "Área administrativa da landing page da NYX Tecnologia." },
+      { title: "Acesso restrito — nyx Tecnologia" },
+      { name: "description", content: "Área administrativa da landing page da nyx Tecnologia." },
+      { property: "og:title", content: "Acesso restrito — nyx Tecnologia" },
+      { property: "og:description", content: "Área administrativa da landing page da nyx Tecnologia." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
@@ -85,7 +85,7 @@ function AuthPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-navy-deep px-5 py-16">
       <div className="w-full max-w-md">
-        <img src={img.logoNyxBranco} alt="NYX Tecnologia" className="mx-auto h-10 w-auto" />
+        <img src={img.logoNyxBranco} alt="nyx Tecnologia" className="mx-auto h-10 w-auto" />
         <div className="mt-8 rounded-lg bg-card p-8">
           <h1 className="text-2xl font-extrabold text-foreground">
             {mode === "login" ? "Acesso administrativo" : "Criar acesso"}
