@@ -399,12 +399,46 @@ export function HospitalInteligente() {
   );
 }
 
+const newcheckPilares = [
+  {
+    titulo: "Registro digital",
+    texto:
+      "O processo digital permite evidenciar com eficiência, com recursos multimídia como áudio, fotos, vídeos, assinaturas e mais.",
+  },
+  {
+    titulo: "Fluxo de atividades e cronogramas",
+    texto:
+      "O planejamento é feito na plataforma, conforme a rotina de cada instituição, gerando demandas específicas — como limpeza abrindo manutenção.",
+  },
+  {
+    titulo: "Integrações",
+    texto: "O sistema é integrável a diversas soluções, gerando mais agilidade em vários processos.",
+  },
+  {
+    titulo: "Formulários customizados",
+    texto: "Todos os formulários podem ser customizados, com diversos inputs para facilitar os registros.",
+  },
+];
+
+const newcheckRecursos = [
+  ["Serviços de geolocalização", "Saiba onde cada checklist foi executado e receba alertas fora da área delimitada."],
+  ["Checklists personalizados", "Texto, múltipla escolha, fotos, assinatura digital, localização e mais."],
+  ["Gestão de não conformidades", "Falhas identificadas automaticamente, com plano de ação e acompanhamento."],
+  ["Notificações e lembretes", "Aviso de tarefa atrasada, falha ou nova ação a ser executada."],
+  ["Dashboards e KPIs em tempo real", "Painéis filtráveis por equipe, local ou período."],
+  ["Controle de tempo e presença", "Duração de cada atividade e cumprimento dos horários corretos."],
+  ["Relatórios automáticos", "Envio diário, semanal ou mensal em PDF, Excel ou direto no BI."],
+  ["Registro de evidências", "Fotos, vídeos, áudios e assinaturas direto do celular."],
+  ["Integração com sistemas externos", "Conecte ERP, CRM ou Power BI via API."],
+  ["App mobile com modo offline", "A equipe trabalha sem internet e o app sincroniza depois."],
+];
+
 export function Newcheck() {
   return (
     <section id="newcheck" className="bg-background py-20 lg:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-2 lg:items-center lg:px-8">
         <Reveal>
-          <span className="eyebrow text-graphite">Newcheck</span>
+          <span className="eyebrow text-graphite">newcheck · Simplifique. Automatize. Controle.</span>
           <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold text-foreground">
             Higienização comprovada, não presumida.
           </h2>
