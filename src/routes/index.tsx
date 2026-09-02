@@ -7,8 +7,12 @@ import {
   Aplicacoes,
   Beneficios,
   CtaFinal,
+  Depoimentos,
+  GestaoAtivos,
   Hero,
   HospitalInteligente,
+  Hospitalidade,
+  Intercorrencias,
   JornadaCirurgica,
   Newcheck,
   Problema,
@@ -54,9 +58,13 @@ function LandingPage() {
         <JornadaCirurgica />
         <Tracker />
         <Aplicacoes />
+        <GestaoAtivos />
+        <Intercorrencias />
         <HospitalInteligente />
         <Newcheck />
+        <Hospitalidade />
         <Beneficios />
+        <Depoimentos />
         <ProvaSocial />
         <CtaFinal />
       </main>

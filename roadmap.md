@@ -12,3 +12,4 @@
 - [x] Atualizar chamadas do hero, Newcheck e CTA final com dados oficiais.
 - [x] Substituir o ícone desenhado pelo logo oficial do WhatsApp.
 - [x] Remover a imagem de Gestão de Ativos do CTA final.
+- [x] Ampliar o newcheck e incluir Gestão de Ativos, Intercorrências Clínicas, Hospitalidade e Depoimentos.
