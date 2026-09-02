@@ -117,7 +117,7 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
     line-height: 0.98;
   }
 

@@ -275,7 +275,9 @@ export function Tracker() {
               <article key={item.titulo} className="relative bg-navy p-6">
                 {item.badge ? <span className="absolute right-4 top-4 bg-gold px-2 py-1 text-[10px] font-bold uppercase text-gold-foreground">{item.badge}</span> : null}
                 <item.icon className="size-6 text-gold" aria-hidden />
-                <h4 className="mt-4 text-lg font-extrabold">Beacon de {item.titulo}</h4>
+                <h4 className="mt-4 text-lg font-extrabold">
+                  {item.titulo === "Totem / interativos" ? item.titulo : `Beacon de ${item.titulo}`}
+                </h4>
                 <p className="mt-1 text-sm text-navy-foreground/65">{item.texto}</p>
               </article>
             ))}
