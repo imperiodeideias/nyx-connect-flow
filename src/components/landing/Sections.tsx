@@ -508,7 +508,7 @@ export function ProvaSocial() {
         <Reveal>
           <span className="eyebrow text-graphite">Confiança</span>
           <h2 className="mt-4 max-w-2xl text-[clamp(1.75rem,4vw,2.75rem)] font-extrabold text-foreground">
-            Instituições de saúde e facilities que já contam com a nyx.
+            Instituições de saúde, facilities e parceiros que já contam com a nyx.
           </h2>
         </Reveal>
 
