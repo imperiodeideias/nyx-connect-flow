@@ -29,8 +29,8 @@ export function Header() {
     >
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 lg:px-8">
         <a href="#topo" className="flex min-w-0 items-center gap-3">
-          <img src={img.logoNyxBranco} alt="NYX Tecnologia" className="h-8 w-auto shrink-0" />
-          <span className="sr-only">NYX Tecnologia</span>
+          <img src={img.logoNyxBranco} alt="nyx Tecnologia" className="h-8 w-auto shrink-0" />
+          <span className="sr-only">nyx Tecnologia</span>
         </a>
 
         <div className="flex items-center gap-6">

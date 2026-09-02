@@ -10,10 +10,10 @@ import { img } from "@/lib/assets";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Painel administrativo — NYX Tecnologia" },
-      { name: "description", content: "Métricas de acesso e gestão de leads da landing page da NYX." },
-      { property: "og:title", content: "Painel administrativo — NYX Tecnologia" },
-      { property: "og:description", content: "Métricas de acesso e gestão de leads da landing page da NYX." },
+      { title: "Painel administrativo — nyx Tecnologia" },
+      { name: "description", content: "Métricas de acesso e gestão de leads da landing page da nyx." },
+      { property: "og:title", content: "Painel administrativo — nyx Tecnologia" },
+      { property: "og:description", content: "Métricas de acesso e gestão de leads da landing page da nyx." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
@@ -138,7 +138,7 @@ function AdminPage() {
       <header className="bg-navy-deep text-navy-foreground">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-5 lg:px-8">
           <div className="flex min-w-0 items-center gap-3">
-            <img src={img.logoNyxBranco} alt="NYX Tecnologia" className="h-7 w-auto shrink-0" />
+            <img src={img.logoNyxBranco} alt="nyx Tecnologia" className="h-7 w-auto shrink-0" />
             <h1 className="truncate text-lg font-extrabold">Painel de leads</h1>
           </div>
           <div className="flex shrink-0 items-center gap-2">

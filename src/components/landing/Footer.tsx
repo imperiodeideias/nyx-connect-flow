@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="bg-navy-deep text-navy-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 lg:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
         <div>
-          <img src={img.logoNyxBranco} alt="NYX Tecnologia" className="h-9 w-auto" />
+          <img src={img.logoNyxBranco} alt="nyx Tecnologia" className="h-9 w-auto" />
           <p className="mt-4 max-w-sm text-sm text-navy-foreground/70">
             Soluções digitais e IoT para a saúde. Sensorizamos ativos, ambientes e processos para transformar
             operação hospitalar em dado, e dado em decisão.
@@ -41,7 +41,7 @@ export function Footer() {
           <ul className="mt-4 space-y-3 text-sm text-navy-foreground/80">
             <li>
               <a href="#tracker" className="hover:text-gold">
-                Tracker by NYX
+                Tracker by nyx
               </a>
             </li>
             <li>
@@ -59,7 +59,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10 px-5 py-6 text-center text-xs text-navy-foreground/60 lg:px-8">
-        © {new Date().getFullYear()} NYX Tecnologia. Todos os direitos reservados.
+        © {new Date().getFullYear()} nyx Tecnologia. Todos os direitos reservados.
       </div>
     </footer>
   );

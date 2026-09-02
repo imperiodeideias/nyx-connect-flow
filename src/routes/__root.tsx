@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "NYX Tecnologia — IoT para saúde" },
+      { title: "nyx Tecnologia — IoT para saúde" },
       {
         name: "description",
         content:
           "Soluções digitais e IoT para hospitais: rastreio de ativos, jornada do paciente e higienização com evidência.",
       },
-      { name: "author", content: "NYX Tecnologia" },
-      { property: "og:title", content: "NYX Tecnologia — IoT para saúde" },
+      { name: "author", content: "nyx Tecnologia" },
+      { property: "og:title", content: "nyx Tecnologia — IoT para saúde" },
       {
         property: "og:description",
         content:

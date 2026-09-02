@@ -141,7 +141,7 @@ export function LeadForm() {
         <label className="flex items-start gap-3 text-sm text-muted-foreground">
           <input type="checkbox" name="consentimento" className="mt-1 size-4 shrink-0 accent-[var(--gold)]" />
           <span>
-            Autorizo o contato da NYX Tecnologia e o tratamento dos meus dados conforme a{" "}
+            Autorizo o contato da nyx Tecnologia e o tratamento dos meus dados conforme a{" "}
             <Link to="/politica-de-privacidade" className="font-semibold text-foreground underline underline-offset-2">
               Política de Privacidade
             </Link>{" "}
