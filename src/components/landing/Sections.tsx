@@ -2,9 +2,7 @@ import {
   Activity,
   Baby,
   BedDouble,
-  BellRing,
   Boxes,
-  BrainCircuit,
   ClipboardCheck,
   Clock,
   DoorOpen,
@@ -14,7 +12,6 @@ import {
   MapPin,
   MonitorCog,
   PackageOpen,
-  Radar,
   RadioTower,
   Route,
   ShieldCheck,
@@ -23,7 +20,6 @@ import {
   TrendingUp,
   Users,
   Watch,
-  Wifi,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { LeadForm } from "./LeadForm";
@@ -415,7 +411,9 @@ export function Newcheck() {
           </p>
           <div className="mt-7 border-l-2 border-gold pl-5">
             <strong className="block text-3xl font-extrabold text-foreground">50% menos tempo</strong>
-            <p className="mt-1 text-sm text-graphite">na liberação de leitos no Hospital da Criança de Brasília.</p>
+            <p className="mt-1 text-sm text-graphite">
+              na liberação de leitos no Hospital da Criança de Brasília, com cerca de 180 mil folhas eliminadas por ano.
+            </p>
             <a href="https://www.hcb.org.br/geral/hospital_da_crianca_de_brasilia_reduz_em_50_o_tempo_de_liberacao_de_leitos_com_nova_tecnologia_de_higienizacao" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-foreground underline underline-offset-4">
               Ler caso publicado <ExternalLink className="size-3.5" aria-hidden />
             </a>
