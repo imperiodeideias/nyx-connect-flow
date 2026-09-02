@@ -484,6 +484,46 @@ export function Newcheck() {
           </figure>
         </Reveal>
       </div>
+
+      <div className="mx-auto mt-16 max-w-6xl px-5 lg:px-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {newcheckPilares.map((p, i) => (
+            <Reveal key={p.titulo} delay={i * 60} className="border-t-2 border-gold bg-mist p-6">
+              <h3 className="text-base font-bold text-foreground">{p.titulo}</h3>
+              <p className="mt-2 text-sm text-graphite">{p.texto}</p>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mt-14 grid gap-10 lg:grid-cols-2 lg:items-center">
+          <figure>
+            <img
+              src={img.newcheckPaineis}
+              alt="Painéis gerenciais e app do newcheck com indicadores de higienização"
+              className="w-full"
+              width={1096}
+              height={758}
+              loading="lazy"
+            />
+          </figure>
+          <div>
+            <h3 className="text-2xl font-extrabold text-foreground">Painéis gerenciais e app em campo</h3>
+            <p className="mt-3 text-graphite">
+              A equipe registra pelo celular, com ou sem internet, e a gestão acompanha planejado x realizado,
+              pendências por turno, recusas e produtividade em tempo real.
+            </p>
+          </div>
+        </Reveal>
+
+        <div className="mt-14 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+          {newcheckRecursos.map(([titulo, texto], i) => (
+            <Reveal key={titulo} delay={i * 40} className="border-l-2 border-gold pl-4">
+              <h4 className="text-sm font-bold text-foreground">{titulo}</h4>
+              <p className="mt-1 text-sm text-graphite">{texto}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
