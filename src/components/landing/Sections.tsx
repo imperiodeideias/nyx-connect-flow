@@ -1,17 +1,29 @@
 import {
   Activity,
+  Baby,
   BedDouble,
+  BellRing,
   Boxes,
+  BrainCircuit,
   ClipboardCheck,
   Clock,
+  DoorOpen,
+  Droplets,
+  ExternalLink,
   Gauge,
   MapPin,
+  MonitorCog,
+  PackageOpen,
   Radar,
+  RadioTower,
+  Route,
   ShieldCheck,
   Sparkles,
   Thermometer,
   TrendingUp,
   Users,
+  Watch,
+  Wifi,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { LeadForm } from "./LeadForm";
@@ -60,9 +72,9 @@ export function Hero() {
 
           <dl className="mt-12 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
             {[
-              { valor: "24/7", label: "Monitoramento contínuo" },
-              { valor: "100%", label: "Rastreabilidade dos ativos" },
-              { valor: "Tempo real", label: "Dados para decisão" },
+              { valor: "+30", label: "hospitais em operação" },
+              { valor: "+37 mil", label: "jornadas cirúrgicas rastreadas" },
+              { valor: "+10 mi", label: "higienizações registradas/ano" },
             ].map((stat) => (
               <div key={stat.label}>
                 <dt className="text-2xl font-extrabold text-gold sm:text-3xl">{stat.valor}</dt>
@@ -76,6 +88,59 @@ export function Hero() {
           <div id="contato-hero">
             <LeadForm />
           </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+const jornada = [
+  { titulo: "Recepção", detalhe: "Internação e associação do beacon" },
+  { titulo: "Leito", detalhe: "Admissão e preparo de enfermagem" },
+  { titulo: "Espera", detalhe: "Transporte ao centro cirúrgico" },
+  { titulo: "Sala cirúrgica", detalhe: "Anestesia, cirurgia e curativo" },
+  { titulo: "Internação", detalhe: "Chegada ao leito e alta" },
+];
+
+export function JornadaCirurgica() {
+  return (
+    <section id="jornada" className="bg-mist py-20 lg:py-28">
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <Reveal>
+          <span className="eyebrow text-graphite">Jornada do paciente cirúrgico</span>
+          <div className="mt-4 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+            <h2 className="text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold text-foreground">
+              Cada etapa visível. Cada atraso acionável.
+            </h2>
+            <p className="text-lg text-graphite">
+              O beacon acompanha o trajeto físico do paciente e os gateways registram permanência e deslocamentos,
+              sem interação humana.
+            </p>
+          </div>
+        </Reveal>
+
+        <ol className="mt-12 grid gap-3 lg:grid-cols-5">
+          {jornada.map((etapa, index) => (
+            <Reveal key={etapa.titulo} as="li" delay={index * 70} className="relative border-t-2 border-gold bg-background p-5">
+              <span className="font-display text-sm font-extrabold text-gold">0{index + 1}</span>
+              <h3 className="mt-4 text-lg font-extrabold text-foreground">{etapa.titulo}</h3>
+              <p className="mt-2 text-sm text-graphite">{etapa.detalhe}</p>
+            </Reveal>
+          ))}
+        </ol>
+
+        <Reveal className="mt-8 grid gap-6 bg-navy p-7 text-navy-foreground md:grid-cols-[1fr_auto] md:items-center">
+          <div className="flex gap-4">
+            <Route className="mt-1 size-7 shrink-0 text-gold" aria-hidden />
+            <div>
+              <h3 className="text-xl font-extrabold">Rastreamento completo, da admissão à alta</h3>
+              <p className="mt-2 text-sm text-navy-foreground/75">
+                Na sala, registros de início e fim de anestesia e cirurgia completam a leitura de ocupação,
+                ociosidade e atrasos. O beacon é desassociado somente na alta.
+              </p>
+            </div>
+          </div>
+          <a href="#resultados" className="font-semibold text-gold underline underline-offset-4">Ver validação científica</a>
         </Reveal>
       </div>
     </section>
@@ -133,10 +198,19 @@ export function Problema() {
 }
 
 const etapas = [
-  { titulo: "Sensorizar", texto: "Beacons, tags e gateways captam presença, movimento e condição em todo o ambiente." },
-  { titulo: "Conectar", texto: "A rede IoT transmite os eventos em tempo real, sem depender de registro manual." },
-  { titulo: "Analisar", texto: "Painéis mostram uso, ociosidade, fluxo e desvios de processo por setor e turno." },
-  { titulo: "Otimizar", texto: "A gestão age sobre dados: menos aluguel, menos retrabalho, mais giro de leito." },
+  { titulo: "Coletar", texto: "Beacons BLE e gateways captam presença, movimento e condições do ambiente." },
+  { titulo: "Conectar", texto: "Wi‑Fi e LoRa levam eventos ao painel em tempo real, sem registros manuais." },
+  { titulo: "Processar", texto: "Os dados revelam ocupação, ociosidade, fluxo, desvios e evasão de ativos." },
+  { titulo: "Evoluir", texto: "Evidências apoiam melhorias e criam base para aprendizado de máquina e predições." },
+];
+
+const beacons = [
+  { icon: Droplets, titulo: "Dispenser", texto: "Reposição de insumos" },
+  { icon: Watch, titulo: "Pulseira", texto: "Equipes e pacientes" },
+  { icon: Baby, titulo: "Neonato", texto: "Recém-nascidos", badge: "Em desenvolvimento" },
+  { icon: DoorOpen, titulo: "Porta", texto: "Acessos e atividades" },
+  { icon: MonitorCog, titulo: "Totem / interativos", texto: "Serviços e marcação de tempos" },
+  { icon: PackageOpen, titulo: "Ativos", texto: "Equipamentos diversos" },
 ];
 
 export function Tracker() {
@@ -150,9 +224,14 @@ export function Tracker() {
               IoT para transformar Hospitais Inteligentes
             </h2>
             <p className="mt-5 text-lg text-navy-foreground/80">
-              Hardware próprio, instalação não invasiva e software de gestão. O Tracker transforma equipamentos,
-              pessoas e ambientes em fontes contínuas de dados.
+              Hardware e software próprios. O Tracker conecta beacons BLE a gateways por Wi‑Fi e LoRa para
+              transformar equipamentos, pessoas e ambientes em fontes contínuas de dados.
             </p>
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold text-navy-foreground/80">
+              {["BLE", "Wi‑Fi", "LoRa", "Cercas eletrônicas", "Alertas de evasão"].map((item) => (
+                <span key={item} className="border border-white/15 px-3 py-2">{item}</span>
+              ))}
+            </div>
             <ul className="mt-8 space-y-4">
               {etapas.map((etapa, index) => (
                 <li key={etapa.titulo} className="flex gap-4 border-b border-white/10 pb-4">
@@ -183,6 +262,36 @@ export function Tracker() {
             </figure>
           </Reveal>
         </div>
+
+        <Reveal className="mt-16 border-t border-white/15 pt-10">
+          <div className="grid gap-5 md:grid-cols-[0.7fr_1.3fr] md:items-end">
+            <div>
+              <span className="eyebrow text-gold">Beacons BLE</span>
+              <h3 className="mt-3 text-3xl font-extrabold">Um formato para cada jornada.</h3>
+            </div>
+            <p className="text-base text-navy-foreground/70">
+              Pequenos dispositivos de baixo consumo emitem sinais captados pelos gateways, indicando posição,
+              passagem e acionamentos em tempo real.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+            {beacons.map((item) => (
+              <article key={item.titulo} className="relative bg-navy p-6">
+                {item.badge ? <span className="absolute right-4 top-4 bg-gold px-2 py-1 text-[10px] font-bold uppercase text-gold-foreground">{item.badge}</span> : null}
+                <item.icon className="size-6 text-gold" aria-hidden />
+                <h4 className="mt-4 text-lg font-extrabold">Beacon de {item.titulo}</h4>
+                <p className="mt-1 text-sm text-navy-foreground/65">{item.texto}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 grid gap-4 border border-white/10 p-6 sm:grid-cols-2 lg:grid-cols-4">
+            {["Temperatura", "Luminosidade", "Presença", "Abertura de portas"].map((sensor) => (
+              <div key={sensor} className="flex items-center gap-3 text-sm font-semibold">
+                <RadioTower className="size-4 text-gold" aria-hidden /> {sensor}
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -304,6 +413,13 @@ export function Newcheck() {
             O Newcheck registra cada etapa da limpeza e da manutenção com data, hora, local e responsável.
             A gestão enxerga produtividade por colaborador e a instituição responde auditorias com evidência.
           </p>
+          <div className="mt-7 border-l-2 border-gold pl-5">
+            <strong className="block text-3xl font-extrabold text-foreground">50% menos tempo</strong>
+            <p className="mt-1 text-sm text-graphite">na liberação de leitos no Hospital da Criança de Brasília.</p>
+            <a href="https://www.hcb.org.br/geral/hospital_da_crianca_de_brasilia_reduz_em_50_o_tempo_de_liberacao_de_leitos_com_nova_tecnologia_de_higienizacao" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-foreground underline underline-offset-4">
+              Ler caso publicado <ExternalLink className="size-3.5" aria-hidden />
+            </a>
+          </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {[
               { icon: ClipboardCheck, label: "Checklists digitais" },
@@ -328,34 +444,58 @@ export function Newcheck() {
   );
 }
 
-const beneficios = [
-  { icon: TrendingUp, titulo: "Redução de custo", texto: "Menos aluguel, menos perda e compra dimensionada pelo uso real." },
-  { icon: Radar, titulo: "Visibilidade total", texto: "Cada ativo e cada etapa com posição e histórico consultáveis." },
-  { icon: ShieldCheck, titulo: "Segurança assistencial", texto: "Alertas em desvios críticos antes que virem incidente." },
-  { icon: Gauge, titulo: "Eficiência operacional", texto: "Equipes focadas no cuidado, não em procurar equipamento." },
+const resultados = [
+  { valor: "+30", texto: "hospitais com a nyx em operação" },
+  { valor: "+10 mi", texto: "higienizações registradas por ano no newcheck" },
+  { valor: "+37 mil", texto: "jornadas cirúrgicas rastreadas em 3 hospitais" },
 ];
 
 export function Beneficios() {
   return (
-    <section className="bg-navy py-20 text-navy-foreground lg:py-28">
+    <section id="resultados" className="bg-navy py-20 text-navy-foreground lg:py-28">
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <Reveal>
-          <span className="eyebrow text-gold">Resultados</span>
+          <span className="eyebrow text-gold">Escala e evidência</span>
           <h2 className="mt-4 max-w-3xl text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold">
-            O retorno aparece no primeiro ciclo de medição.
+            Tecnologia própria, validada na operação e na ciência.
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {beneficios.map((item, index) => (
-            <Reveal key={item.titulo} delay={index * 80}>
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {resultados.map((item, index) => (
+            <Reveal key={item.valor} delay={index * 80}>
               <div className="border-t border-white/15 pt-6">
-                <item.icon className="size-6 text-gold" aria-hidden />
-                <h3 className="mt-4 text-lg font-extrabold">{item.titulo}</h3>
-                <p className="mt-2 text-sm text-navy-foreground/70">{item.texto}</p>
+                <strong className="text-4xl font-extrabold text-gold lg:text-5xl">{item.valor}</strong>
+                <p className="mt-3 text-base text-navy-foreground/70">{item.texto}</p>
               </div>
             </Reveal>
           ))}
         </div>
+        <Reveal className="mt-14 grid gap-8 border border-white/15 p-7 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
+          <div>
+            <span className="eyebrow text-gold">Estudo peer-reviewed · 2025</span>
+            <h3 className="mt-4 text-3xl font-extrabold">O tracker tornou visível o gargalo cirúrgico.</h3>
+            <p className="mt-4 text-sm text-navy-foreground/70">
+              Estudo prospectivo em hospital cirúrgico terciário acompanhou a jornada completa de 320 pacientes
+              da recepção à alta com beacons BLE e gateways.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-5">
+            {[
+              ["25 min", "mediana na recepção"],
+              ["107 min", "no preparo pré-operatório"],
+              ["19 min", "transporte ao centro cirúrgico"],
+              ["89,9%", "das cirurgias de 1º horário atrasaram"],
+            ].map(([valor, label]) => (
+              <div key={label} className="border-l-2 border-gold pl-4">
+                <strong className="text-2xl font-extrabold text-gold">{valor}</strong>
+                <p className="mt-1 text-xs text-navy-foreground/65">{label}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-navy-foreground/55 lg:col-span-2">
+            Shalabi IHMH, Schiesari LMC. Revista do Colégio Brasileiro de Cirurgiões 52:e20253813. DOI 10.1590/0100-6991e-20253813. Atraso médio observado: 39 min.
+          </p>
+        </Reveal>
       </div>
     </section>
   );
@@ -396,15 +536,11 @@ export function CtaFinal() {
         <Reveal>
           <span className="eyebrow text-graphite">Próximo passo</span>
           <h2 className="mt-4 text-[clamp(2rem,4.5vw,3.25rem)] font-extrabold text-foreground">
-            Vamos medir o que hoje é invisível na sua operação.
+            Mapeie uma vez. Rastreie tudo. Transforme a gestão.
           </h2>
           <p className="mt-5 text-lg text-graphite">
-            Em uma conversa de 30 minutos mapeamos os pontos de perda da sua instituição e mostramos qual
-            aplicação do Tracker traz retorno mais rápido.
+            Agende uma demonstração e veja como transformar os fluxos da sua instituição em decisões baseadas em evidências.
           </p>
-          <figure className="mt-10 overflow-hidden rounded-lg">
-            <img src={img.gestaoAtivos} alt="Equipamentos hospitalares monitorados pela nyx" className="w-full object-cover" loading="lazy" />
-          </figure>
         </Reveal>
 
         <Reveal delay={100}>

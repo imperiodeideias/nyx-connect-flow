@@ -4,8 +4,8 @@ import { img } from "@/lib/assets";
 
 const links = [
   { href: "#tracker", label: "Tracker" },
+  { href: "#jornada", label: "Jornada Cirúrgica" },
   { href: "#aplicacoes", label: "Aplicações" },
-  { href: "#hospital", label: "Hospital Inteligente" },
   { href: "#newcheck", label: "Newcheck" },
   { href: "#clientes", label: "Clientes" },
 ];

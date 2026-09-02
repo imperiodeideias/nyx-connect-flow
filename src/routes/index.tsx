@@ -9,6 +9,7 @@ import {
   CtaFinal,
   Hero,
   HospitalInteligente,
+  JornadaCirurgica,
   Newcheck,
   Problema,
   ProvaSocial,
@@ -50,6 +51,7 @@ function LandingPage() {
       <main>
         <Hero />
         <Problema />
+        <JornadaCirurgica />
         <Tracker />
         <Aplicacoes />
         <HospitalInteligente />
