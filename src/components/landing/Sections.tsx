@@ -823,14 +823,14 @@ export function Hospitalidade() {
           </ul>
         </Reveal>
 
-        <Reveal delay={100} className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <Reveal delay={100} className="grid grid-cols-2 items-center gap-4 sm:grid-cols-4">
           {telas.map((tela) => (
             <img
               key={tela.src}
               src={tela.src}
               alt={tela.alt}
               loading="lazy"
-              className="w-full rounded-md object-contain"
+              className="h-56 w-full rounded-md object-contain sm:h-64"
             />
           ))}
         </Reveal>
