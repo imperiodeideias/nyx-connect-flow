@@ -1,17 +1,12 @@
 import {
   Activity,
-  Baby,
   BedDouble,
   Boxes,
   ClipboardCheck,
   Clock,
-  DoorOpen,
-  Droplets,
   ExternalLink,
   Gauge,
   MapPin,
-  MonitorCog,
-  PackageOpen,
   RadioTower,
   Route,
   ShieldCheck,
@@ -19,7 +14,6 @@ import {
   Thermometer,
   TrendingUp,
   Users,
-  Watch,
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { LeadForm } from "./LeadForm";
