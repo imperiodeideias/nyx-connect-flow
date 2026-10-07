@@ -57,6 +57,16 @@ type Visit = {
   created_at: string;
 };
 
+type Click = {
+  id: string;
+  session_id: string;
+  elemento: string;
+  secao: string | null;
+  href: string | null;
+  device_type: string | null;
+  created_at: string;
+};
+
 function useSessionReady() {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
@@ -96,6 +106,7 @@ function AdminPage() {
 
   const leads = (data?.leads ?? []) as Lead[];
   const visits = (data?.visits ?? []) as Visit[];
+  const clicks = (data?.clicks ?? []) as Click[];
 
   const period = useMemo(() => {
     const start = new Date(`${fromDate}T00:00:00`);
