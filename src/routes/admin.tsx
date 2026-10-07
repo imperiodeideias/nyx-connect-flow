@@ -57,6 +57,16 @@ type Visit = {
   created_at: string;
 };
 
+type Click = {
+  id: string;
+  session_id: string;
+  elemento: string;
+  secao: string | null;
+  href: string | null;
+  device_type: string | null;
+  created_at: string;
+};
+
 function useSessionReady() {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
@@ -96,6 +106,7 @@ function AdminPage() {
 
   const leads = (data?.leads ?? []) as Lead[];
   const visits = (data?.visits ?? []) as Visit[];
+  const clicks = (data?.clicks ?? []) as Click[];
 
   const period = useMemo(() => {
     const start = new Date(`${fromDate}T00:00:00`);
@@ -125,6 +136,22 @@ function AdminPage() {
     }
     return [...map.entries()].sort((a, b) => b[1] - a[1]);
   }, [visitsInRange]);
+
+  const clicksInRange = clicks.filter((c) => inRange(c.created_at));
+
+  const byClick = useMemo(() => {
+    const map = new Map<string, { total: number; sessoes: Set<string> }>();
+    for (const c of clicksInRange) {
+      const key = c.secao ? `${c.elemento} — ${c.secao}` : c.elemento;
+      const entry = map.get(key) ?? { total: 0, sessoes: new Set<string>() };
+      entry.total += 1;
+      entry.sessoes.add(c.session_id);
+      map.set(key, entry);
+    }
+    return [...map.entries()]
+      .map(([key, v]) => ({ key, total: v.total, sessoes: v.sessoes.size }))
+      .sort((a, b) => b.total - a.total);
+  }, [clicksInRange]);
 
   async function signOut() {
     await queryClient.cancelQueries();
@@ -227,10 +254,11 @@ function AdminPage() {
           <p className="mt-8 text-sm text-graphite">Carregando dados...</p>
         ) : (
           <>
-            <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {[
                 { label: "Acessos", valor: visitsInRange.length },
                 { label: "Sessões únicas", valor: uniqueSessions },
+                { label: "Cliques", valor: clicksInRange.length },
                 { label: "Leads", valor: leadsInRange.length },
                 { label: "Conversão", valor: `${conversion.toFixed(1)}%` },
               ].map((card) => (
@@ -266,6 +294,25 @@ function AdminPage() {
                   ))}
                 </ul>
               </div>
+            </section>
+
+            <section className="mt-8 bg-background p-6">
+              <h2 className="text-lg font-extrabold text-foreground">Cliques na página</h2>
+              <p className="mt-1 text-xs text-graphite">
+                Botões e links clicados, agrupados por elemento e seção.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {byClick.length === 0 ? <li className="text-graphite">Sem dados no período.</li> : null}
+                {byClick.map((item) => (
+                  <li key={item.key} className="flex items-center justify-between gap-4 border-b border-border pb-2">
+                    <span className="min-w-0 truncate text-foreground">{item.key}</span>
+                    <span className="shrink-0 text-graphite">
+                      <span className="font-bold text-navy">{item.total}</span>
+                      {` cliques · ${item.sessoes} sessões`}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </section>
 
             <section className="mt-8 bg-background p-6">
