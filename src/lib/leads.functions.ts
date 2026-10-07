@@ -111,3 +111,21 @@ export const trackVisit = createServerFn({ method: "POST" })
     if (error) console.error("[trackVisit]", error.message);
     return { ok: !error };
   });
+
+export const trackClick = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => clickSchema.parse(data))
+  .handler(async ({ data }) => {
+    const ip = getRequestIP({ xForwardedFor: true }) ?? "unknown";
+    if (rateLimited(`click:${ip}`, 120)) return { ok: false };
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { error } = await supabaseAdmin.from("landing_page_clicks").insert({
+      session_id: data.session_id,
+      elemento: data.elemento,
+      secao: data.secao ?? null,
+      href: data.href ?? null,
+      device_type: data.device_type ?? null,
+    });
+    if (error) console.error("[trackClick]", error.message);
+    return { ok: !error };
+  });
