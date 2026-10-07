@@ -137,6 +137,22 @@ function AdminPage() {
     return [...map.entries()].sort((a, b) => b[1] - a[1]);
   }, [visitsInRange]);
 
+  const clicksInRange = clicks.filter((c) => inRange(c.created_at));
+
+  const byClick = useMemo(() => {
+    const map = new Map<string, { total: number; sessoes: Set<string> }>();
+    for (const c of clicksInRange) {
+      const key = c.secao ? `${c.elemento} — ${c.secao}` : c.elemento;
+      const entry = map.get(key) ?? { total: 0, sessoes: new Set<string>() };
+      entry.total += 1;
+      entry.sessoes.add(c.session_id);
+      map.set(key, entry);
+    }
+    return [...map.entries()]
+      .map(([key, v]) => ({ key, total: v.total, sessoes: v.sessoes.size }))
+      .sort((a, b) => b.total - a.total);
+  }, [clicksInRange]);
+
   async function signOut() {
     await queryClient.cancelQueries();
     queryClient.clear();
