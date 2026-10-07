@@ -175,19 +175,46 @@ function AdminPage() {
       </header>
 
       <main className="mx-auto max-w-6xl px-5 py-10 lg:px-8">
-        <div className="flex flex-wrap items-center gap-2">
-          {([7, 30, 90] as const).map((option) => (
-            <button
-              key={option}
-              type="button"
-              onClick={() => setRange(option)}
-              className={`rounded-sm border px-4 py-2 text-sm font-semibold transition-colors ${
-                range === option ? "border-navy bg-navy text-navy-foreground" : "border-border bg-background text-graphite"
-              }`}
-            >
-              {option} dias
-            </button>
-          ))}
+        <div className="flex flex-wrap items-end gap-4">
+          <div>
+            <label htmlFor="period-from" className="mb-1 block text-xs font-semibold uppercase tracking-wide text-graphite">
+              De
+            </label>
+            <input
+              id="period-from"
+              type="date"
+              value={fromDate}
+              max={toDate}
+              onChange={(e) => setFromDate(e.target.value)}
+              className="rounded-sm border border-input bg-background px-3 py-2 text-sm"
+            />
+          </div>
+          <div>
+            <label htmlFor="period-to" className="mb-1 block text-xs font-semibold uppercase tracking-wide text-graphite">
+              Até
+            </label>
+            <input
+              id="period-to"
+              type="date"
+              value={toDate}
+              min={fromDate}
+              onChange={(e) => setToDate(e.target.value)}
+              className="rounded-sm border border-input bg-background px-3 py-2 text-sm"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              const end = new Date();
+              const start = new Date();
+              start.setDate(start.getDate() - 30);
+              setFromDate(start.toISOString().slice(0, 10));
+              setToDate(end.toISOString().slice(0, 10));
+            }}
+            className="rounded-sm border border-border px-4 py-2 text-sm font-semibold text-graphite transition-colors hover:border-navy hover:text-navy"
+          >
+            Últimos 30 dias
+          </button>
         </div>
 
         {error ? (
