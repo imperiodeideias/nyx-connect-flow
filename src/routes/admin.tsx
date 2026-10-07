@@ -81,7 +81,12 @@ function AdminPage() {
   const queryClient = useQueryClient();
   const fetchOverview = useServerFn(getAdminOverview);
   const setStatus = useServerFn(updateLeadStatus);
-  const [range, setRange] = useState<7 | 30 | 90>(30);
+  const [fromDate, setFromDate] = useState(() => {
+    const d = new Date();
+    d.setDate(d.getDate() - 30);
+    return d.toISOString().slice(0, 10);
+  });
+  const [toDate, setToDate] = useState(() => new Date().toISOString().slice(0, 10));
 
   const { data, isLoading, error, refetch, isFetching } = useQuery({
     queryKey: ["admin-overview"],
@@ -92,9 +97,17 @@ function AdminPage() {
   const leads = (data?.leads ?? []) as Lead[];
   const visits = (data?.visits ?? []) as Visit[];
 
-  const since = useMemo(() => Date.now() - range * 24 * 60 * 60 * 1000, [range]);
-  const visitsInRange = visits.filter((v) => new Date(v.created_at).getTime() >= since);
-  const leadsInRange = leads.filter((l) => new Date(l.created_at).getTime() >= since);
+  const period = useMemo(() => {
+    const start = new Date(`${fromDate}T00:00:00`);
+    const end = new Date(`${toDate}T23:59:59.999`);
+    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return null;
+    return start <= end ? { start, end } : null;
+  }, [fromDate, toDate]);
+
+  const inRange = (iso: string) =>
+    period ? (() => { const t = new Date(iso).getTime(); return t >= period.start.getTime() && t <= period.end.getTime(); })() : false;
+  const visitsInRange = visits.filter((v) => inRange(v.created_at));
+  const leadsInRange = leads.filter((l) => inRange(l.created_at));
   const uniqueSessions = new Set(visitsInRange.map((v) => v.session_id)).size;
   const conversion = uniqueSessions ? (leadsInRange.length / uniqueSessions) * 100 : 0;
 
@@ -162,19 +175,46 @@ function AdminPage() {
       </header>
 
       <main className="mx-auto max-w-6xl px-5 py-10 lg:px-8">
-        <div className="flex flex-wrap items-center gap-2">
-          {([7, 30, 90] as const).map((option) => (
-            <button
-              key={option}
-              type="button"
-              onClick={() => setRange(option)}
-              className={`rounded-sm border px-4 py-2 text-sm font-semibold transition-colors ${
-                range === option ? "border-navy bg-navy text-navy-foreground" : "border-border bg-background text-graphite"
-              }`}
-            >
-              {option} dias
-            </button>
-          ))}
+        <div className="flex flex-wrap items-end gap-4">
+          <div>
+            <label htmlFor="period-from" className="mb-1 block text-xs font-semibold uppercase tracking-wide text-graphite">
+              De
+            </label>
+            <input
+              id="period-from"
+              type="date"
+              value={fromDate}
+              max={toDate}
+              onChange={(e) => setFromDate(e.target.value)}
+              className="rounded-sm border border-input bg-background px-3 py-2 text-sm"
+            />
+          </div>
+          <div>
+            <label htmlFor="period-to" className="mb-1 block text-xs font-semibold uppercase tracking-wide text-graphite">
+              Até
+            </label>
+            <input
+              id="period-to"
+              type="date"
+              value={toDate}
+              min={fromDate}
+              onChange={(e) => setToDate(e.target.value)}
+              className="rounded-sm border border-input bg-background px-3 py-2 text-sm"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              const end = new Date();
+              const start = new Date();
+              start.setDate(start.getDate() - 30);
+              setFromDate(start.toISOString().slice(0, 10));
+              setToDate(end.toISOString().slice(0, 10));
+            }}
+            className="rounded-sm border border-border px-4 py-2 text-sm font-semibold text-graphite transition-colors hover:border-navy hover:text-navy"
+          >
+            Últimos 30 dias
+          </button>
         </div>
 
         {error ? (
