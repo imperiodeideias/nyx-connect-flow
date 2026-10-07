@@ -32,6 +32,14 @@ const visitSchema = attributionSchema.extend({
   landing_page: z.string().max(200).default("/"),
 });
 
+const clickSchema = z.object({
+  session_id: z.string().min(4).max(120),
+  elemento: z.string().trim().min(1).max(160),
+  secao: z.string().trim().max(120).optional(),
+  href: z.string().max(500).optional(),
+  device_type: z.string().max(30).optional(),
+});
+
 // Simple in-memory rate limit per IP (best effort on a single worker instance).
 const hits = new Map<string, number[]>();
 function rateLimited(ip: string, max = 5, windowMs = 60_000): boolean {
