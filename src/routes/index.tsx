@@ -22,7 +22,9 @@ import {
 import { trackClick, trackVisit } from "@/lib/leads.functions";
 import { getAttribution, isFirstViewOfSession } from "@/lib/tracking";
 
-function describeClick(target: EventTarget | null): { elemento: string; secao?: string; href?: string } | null {
+function describeClick(
+  target: EventTarget | null,
+): { elemento: string; secao: string | undefined; href: string | undefined } | null {
   if (!(target instanceof Element)) return null;
   const el = target.closest("a, button");
   if (!el) return null;

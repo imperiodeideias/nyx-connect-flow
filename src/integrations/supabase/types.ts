@@ -35,6 +35,39 @@ export type Database = {
         }
         Relationships: []
       }
+      landing_page_clicks: {
+        Row: {
+          created_at: string
+          device_type: string | null
+          elemento: string
+          href: string | null
+          id: string
+          secao: string | null
+          session_id: string | null
+          visitor_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          device_type?: string | null
+          elemento: string
+          href?: string | null
+          id?: string
+          secao?: string | null
+          session_id?: string | null
+          visitor_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          device_type?: string | null
+          elemento?: string
+          href?: string | null
+          id?: string
+          secao?: string | null
+          session_id?: string | null
+          visitor_id?: string | null
+        }
+        Relationships: []
+      }
       landing_page_visits: {
         Row: {
           created_at: string
