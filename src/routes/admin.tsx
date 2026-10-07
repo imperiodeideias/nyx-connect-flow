@@ -254,10 +254,11 @@ function AdminPage() {
           <p className="mt-8 text-sm text-graphite">Carregando dados...</p>
         ) : (
           <>
-            <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {[
                 { label: "Acessos", valor: visitsInRange.length },
                 { label: "Sessões únicas", valor: uniqueSessions },
+                { label: "Cliques", valor: clicksInRange.length },
                 { label: "Leads", valor: leadsInRange.length },
                 { label: "Conversão", valor: `${conversion.toFixed(1)}%` },
               ].map((card) => (
@@ -293,6 +294,25 @@ function AdminPage() {
                   ))}
                 </ul>
               </div>
+            </section>
+
+            <section className="mt-8 bg-background p-6">
+              <h2 className="text-lg font-extrabold text-foreground">Cliques na página</h2>
+              <p className="mt-1 text-xs text-graphite">
+                Botões e links clicados, agrupados por elemento e seção.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {byClick.length === 0 ? <li className="text-graphite">Sem dados no período.</li> : null}
+                {byClick.map((item) => (
+                  <li key={item.key} className="flex items-center justify-between gap-4 border-b border-border pb-2">
+                    <span className="min-w-0 truncate text-foreground">{item.key}</span>
+                    <span className="shrink-0 text-graphite">
+                      <span className="font-bold text-navy">{item.total}</span>
+                      {` cliques · ${item.sessoes} sessões`}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </section>
 
             <section className="mt-8 bg-background p-6">
