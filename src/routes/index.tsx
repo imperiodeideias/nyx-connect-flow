@@ -58,12 +58,32 @@ export const Route = createFileRoute("/")({
 
 function LandingPage() {
   const track = useServerFn(trackVisit);
+  const click = useServerFn(trackClick);
 
   useEffect(() => {
     if (!isFirstViewOfSession()) return;
     const attribution = getAttribution();
     void track({ data: { ...attribution, landing_page: window.location.pathname } }).catch(() => {});
   }, [track]);
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const info = describeClick(event.target);
+      if (!info) return;
+      const attribution = getAttribution();
+      void click({
+        data: {
+          session_id: attribution.session_id,
+          elemento: info.elemento,
+          secao: info.secao,
+          href: info.href,
+          device_type: attribution.device_type,
+        },
+      }).catch(() => {});
+    };
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
+  }, [click]);
 
   return (
     <div className="min-h-screen bg-background">

@@ -27,7 +27,7 @@ export const getAdminOverview = createServerFn({ method: "POST" })
     await assertAdmin(context as never);
     const supabase = context.supabase;
 
-    const [{ data: visits }, { data: leads }] = await Promise.all([
+    const [{ data: visits }, { data: leads }, { data: clicks }] = await Promise.all([
       supabase
         .from("landing_page_visits")
         .select("id, session_id, utm_source, utm_medium, utm_campaign, referrer, device_type, created_at")
@@ -38,9 +38,14 @@ export const getAdminOverview = createServerFn({ method: "POST" })
         .select("*")
         .order("created_at", { ascending: false })
         .limit(1000),
+      supabase
+        .from("landing_page_clicks")
+        .select("id, session_id, elemento, secao, href, device_type, created_at")
+        .order("created_at", { ascending: false })
+        .limit(5000),
     ]);
 
-    return { visits: visits ?? [], leads: leads ?? [] };
+    return { visits: visits ?? [], leads: leads ?? [], clicks: clicks ?? [] };
   });
 
 export const updateLeadStatus = createServerFn({ method: "POST" })
