@@ -81,7 +81,12 @@ function AdminPage() {
   const queryClient = useQueryClient();
   const fetchOverview = useServerFn(getAdminOverview);
   const setStatus = useServerFn(updateLeadStatus);
-  const [range, setRange] = useState<7 | 30 | 90>(30);
+  const [fromDate, setFromDate] = useState(() => {
+    const d = new Date();
+    d.setDate(d.getDate() - 30);
+    return d.toISOString().slice(0, 10);
+  });
+  const [toDate, setToDate] = useState(() => new Date().toISOString().slice(0, 10));
 
   const { data, isLoading, error, refetch, isFetching } = useQuery({
     queryKey: ["admin-overview"],
@@ -92,9 +97,17 @@ function AdminPage() {
   const leads = (data?.leads ?? []) as Lead[];
   const visits = (data?.visits ?? []) as Visit[];
 
-  const since = useMemo(() => Date.now() - range * 24 * 60 * 60 * 1000, [range]);
-  const visitsInRange = visits.filter((v) => new Date(v.created_at).getTime() >= since);
-  const leadsInRange = leads.filter((l) => new Date(l.created_at).getTime() >= since);
+  const period = useMemo(() => {
+    const start = new Date(`${fromDate}T00:00:00`);
+    const end = new Date(`${toDate}T23:59:59.999`);
+    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return null;
+    return start <= end ? { start, end } : null;
+  }, [fromDate, toDate]);
+
+  const inRange = (iso: string) =>
+    period ? (() => { const t = new Date(iso).getTime(); return t >= period.start.getTime() && t <= period.end.getTime(); })() : false;
+  const visitsInRange = visits.filter((v) => inRange(v.created_at));
+  const leadsInRange = leads.filter((l) => inRange(l.created_at));
   const uniqueSessions = new Set(visitsInRange.map((v) => v.session_id)).size;
   const conversion = uniqueSessions ? (leadsInRange.length / uniqueSessions) * 100 : 0;
 
